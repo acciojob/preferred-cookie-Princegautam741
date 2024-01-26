@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var fontSize = document.getElementById("fontsize").value;
     var fontColor = document.getElementById("fontcolor").value;
 
-    // Set CSS variables and update styles
+    // Update CSS variables in :root
     document.documentElement.style.setProperty("--fontsize", fontSize + "px");
     document.documentElement.style.setProperty("--fontcolor", fontColor);
 
