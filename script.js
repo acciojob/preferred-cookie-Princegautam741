@@ -1,65 +1,69 @@
-// script.js
+//your JS code here. If required.
+document.getElementById("myForm").addEventListener("submit",(e)=>{
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Function to set cookies
-  function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-  }
+	e.preventDefault();
+	let fontsize = document.getElementById("fontsize").value;
+	let fontcolor = document.getElementById("fontcolor").value;
 
-  // Function to get cookies
-  function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(";");
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == " ") c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
+	document.cookie = `fontsize=${fontsize};`
+	document.cookie = `fontcolor=${fontcolor};`
+	
+document.documentElement.style.setProperty("--fontsize", `${fontsize??16}px`);
+document.documentElement.style.setProperty("--fontcolor", `${fontcolor??"#000"}`);
+})
 
-  // Function to handle form submission
-  function handleFormSubmit(event) {
-    event.preventDefault();
+let cookies = Object.fromEntries(
+	document.cookie.split("; ").
+	map((item)=>item.split("=")));
 
-    // Get values from the form
-    var fontSize = document.getElementById("fontsize").value;
-    var fontColor = document.getElementById("fontcolor").value;
+document.getElementById("fontsize").value = cookies.fontsize??16;
+document.getElementById("fontcolor").value = cookies.fontcolor??"#000000";
 
-    // Update CSS variables in :root
-    document.documentElement.style.setProperty("--fontsize", fontSize + "px");
-    document.documentElement.style.setProperty("--fontcolor", fontColor);
+document.documentElement.style.setProperty("--fontsize", `${cookies.fontsize??16}px`);
+document.documentElement.style.setProperty("--fontcolor", `${cookies.fontcolor??"#000"}`);
+//your JS code here. If required.
+document.getElementById("myForm").addEventListener("submit",(e)=>{
 
-    // Save preferences in cookies
-    setCookie("fontsize", fontSize, 365);
-    setCookie("fontcolor", fontColor, 365);
-  }
+	e.preventDefault();
+	let fontsize = document.getElementById("fontsize").value;
+	let fontcolor = document.getElementById("fontcolor").value;
 
-  // Function to apply saved preferences on page load
-  function applySavedPreferences() {
-    var savedFontSize = getCookie("fontsize");
-    var savedFontColor = getCookie("fontcolor");
+	document.cookie = `fontsize=${fontsize};`
+	document.cookie = `fontcolor=${fontcolor};`
+	
+document.documentElement.style.setProperty("--fontsize", `${fontsize??16}px`);
+document.documentElement.style.setProperty("--fontcolor", `${fontcolor??"#000"}`);
+})
 
-    if (savedFontSize) {
-      document.getElementById("fontsize").value = savedFontSize;
-      document.documentElement.style.setProperty("--fontsize", savedFontSize + "px");
-    }
+let cookies = Object.fromEntries(
+	document.cookie.split("; ").
+	map((item)=>item.split("=")));
 
-    if (savedFontColor) {
-      document.getElementById("fontcolor").value = savedFontColor;
-      document.documentElement.style.setProperty("--fontcolor", savedFontColor);
-    }
-  }
+document.getElementById("fontsize").value = cookies.fontsize??16;
+document.getElementById("fontcolor").value = cookies.fontcolor??"#000000";
 
-  // Add event listener to the form for submission
-  document.querySelector("form").addEventListener("submit", handleFormSubmit);
+document.documentElement.style.setProperty("--fontsize", `${cookies.fontsize??16}px`);
+document.documentElement.style.setProperty("--fontcolor", `${cookies.fontcolor??"#000"}`);
+//your JS code here. If required.
+document.getElementById("myForm").addEventListener("submit",(e)=>{
 
-  // Apply saved preferences on page load
-  applySavedPreferences();
-});
+	e.preventDefault();
+	let fontsize = document.getElementById("fontsize").value;
+	let fontcolor = document.getElementById("fontcolor").value;
+
+	document.cookie = `fontsize=${fontsize};`
+	document.cookie = `fontcolor=${fontcolor};`
+	
+document.documentElement.style.setProperty("--fontsize", `${fontsize??16}px`);
+document.documentElement.style.setProperty("--fontcolor", `${fontcolor??"#000"}`);
+})
+
+let cookies = Object.fromEntries(
+	document.cookie.split("; ").
+	map((item)=>item.split("=")));
+
+document.getElementById("fontsize").value = cookies.fontsize??16;
+document.getElementById("fontcolor").value = cookies.fontcolor??"#000000";
+
+document.documentElement.style.setProperty("--fontsize", `${cookies.fontsize??16}px`);
+document.documentElement.style.setProperty("--fontcolor", `${cookies.fontcolor??"#000"}`);
